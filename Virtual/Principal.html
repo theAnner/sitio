@@ -1,0 +1,827 @@
+<!doctype html>
+<html>
+	<head>
+<meta charset="utf-8">
+<title>TiendaV</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="estilo.css">
+<script src="app.js" async></script>
+	<style>
+		*{
+			padding:0;
+			margin: 0;
+			text-decoration:none;
+			list-style: none;
+			box-sizing: border-box;
+		 
+		}
+        .header-1{
+            background: url(imagenes/CUP.jpeg);
+            background-size:fill;
+            background-position:center;
+            height: 400px;
+            
+           padding-left: 20px;
+           padding-right: 2opx;
+        }
+	
+		nav{
+			background:#828AD6;
+			height:100%px;
+			width:100;
+			
+		}
+		.topnav{
+			
+			background-color: #2587AE;	
+			position: fixed;
+			top: 0;
+            width: 100%;
+            z-index: 1000; 
+		}
+		
+		.logo{
+		height:90px;
+			width:80px;
+		}
+		
+		nav ul{
+			float:right;
+			margin-right:20px;
+			padding:1px 12px;
+			
+		}
+		nav ul li{
+			display:inline-block;
+			line-height:80px;
+			margin:0px 5px;
+		}
+		nav ul li a{
+			color: white;
+			font-size:20px;
+			padding:7px 13px;
+			border-radius: 3px;
+			text-transform:uppercase;
+		}
+		.li a.active, li a:hover{
+			background-color: cadetblue;
+			transition: .5s;
+			}
+		/* controla el container de las tarjetas */
+		.contenedor-items{
+			width: 100%;
+			max-width: 1400px;
+			height: 600px;
+			display:flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		    margin: auto;
+		}
+		/* controla las tarjetas de juegos */
+		.item{
+			
+			width: 210px;
+			margin: 20px;
+			border-radius:6px;
+			overflow: hidden;
+			background: #FEF8F8;
+			box-shadow:0px 1px 10px rgba(0,0,0,0.2);
+			cursor: default;
+			transition: all 300ms ease;
+		}
+		.item:hover{
+			box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+			transform:translateY(-3%)
+		}
+		.item img{
+			width:100%;
+			height: 200px;
+			object-fit:fill;
+			padding:0PX;
+		}
+	.container-carousel {
+    position: relative;
+    width: 990px;
+    height: 400px;
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    border-radius: 15px;
+    overflow: hidden;
+	align-content: space-between;
+    margin: 0 auto;
+	margin-top:50px;
+       }
+	.carruseles {
+    width: 1000%;
+    height: 100%;
+    display: flex;
+
+      }
+	.slider-section {
+    width: calc(100% / 10);
+    height: 100%;
+     }
+	.slider-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 10px;
+	align-content: center;
+    }
+    .btn-left,
+    .btn-right {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #ffffff81;
+    transform: translate(0,-50%);
+    transition: .5s ease;
+    user-select: none;
+    }
+
+        .btn-left:hover,
+        .btn-right:hover {
+        background-color: #333333d4;
+        color: #fff;
+        }
+
+        .btn-left {
+        left: 10px;
+        }
+
+        .btn-right {
+        right: 10px;
+        }
+		
+		img{
+		
+			width:100px;
+			height:500px;
+		}
+		.item .contenido{
+			padding: 10px;
+			text-align: center;
+		}
+		.item .contenido:a{
+			text-decoration: none;
+			display: inline-block;
+			padding: 10px;
+			margin-top: 5px;
+			color: #5A00C8;
+			border: 6px #000000;
+			border-radius: 4px;
+			transition: all 40ms ease;
+		}
+		.item .contenido a:hover{
+			background: #FFE7E7;
+			color:#6ED2FF; 
+			
+		}
+		.item .contenido a{
+			font-size:16px;
+		}
+		.item .contenido h3{
+			font-size: 15px;
+		}
+		
+		/* seccion carrito */
+.carrito{
+    
+    border: 1px solid #666;
+    width: 30%;
+    margin-top: 40pxpx;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: auto;
+    position: relative; float: right;
+    top: 0px;
+    transition: .3s;
+    /* Estilos para ocultar */
+    margin-right: -100%;
+    opacity: 0;
+}
+.carrito .header-carrito{
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+.carrito .carrito-item{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    position: relative;
+    border-bottom: 1px solid #666;
+    padding: 20px;
+}
+.carrito .carrito-item img{
+    margin-right: 20px;
+    height: 220px;
+    width: 200px;
+}
+.carrito .carrito-item .carrito-item-titulo{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.carrito .carrito-item .selector-cantidad{
+    display: inline-block;
+    margin-right: 25px;
+}
+.carrito .carrito-item .carrito-item-cantidad{
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+    display: inline-block;
+    width:30px;
+    padding: 5px;
+    text-align: center;
+}
+.carrito .carrito-item .selector-cantidad i{
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.carrito .carrito-item .carrito-item-precio{
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.carrito .carrito-item .btn-eliminar{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #000;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    z-index: 20;
+}
+.carrito .carrito-item .btn-eliminar i{
+    pointer-events: none;
+}
+
+.carrito-total{
+    background-color: #f3f3f3;
+    padding: 30px;
+}
+.carrito-total .fila{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.carrito-total .btn-pagar{
+    display: block;
+    width: 100%;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+.carrito-total .btn-pagar:hover{
+    scale: 1.05;
+}
+/* Media Query para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .header-1 {
+        width: calc(50% - 40px); /* Ajuste para dos columnas en dispositivos medianos */
+    }
+    .topnav {
+        width: calc(50% - 40px); /* Ajuste para dos columnas en dispositivos medianos */
+    }
+    .carrito{
+        width: calc(50% - 40px); /* Ajuste para dos columnas en dispositivos medianos */
+    }
+    .carruseles{
+        width: calc(50% - 40px); /* Ajuste para dos columnas en dispositivos medianos */
+    }
+    .contenedor-items {
+        width: calc(50% - 40px); /* Ajuste para dos columnas en dispositivos medianos */
+    }
+
+    @media screen and (max-width: 480px) {
+    .header-1 {
+        width: 100%; /* Ajuste para una columna en dispositivos pequeños */
+    }
+    .topnav {
+        width: 100%; /* Ajuste para una columna en dispositivos pequeños */
+    }
+    .carrito {
+        width: 100%; /* Ajuste para una columna en dispositivos pequeños */
+    }
+    .carruseles {
+        width: 100%; /* Ajuste para una columna en dispositivos pequeños */
+    }
+    .contenedor-items {
+        width: 100%; /* Ajuste para una columna en dispositivos pequeños */
+    }
+
+
+    </style>
+		
+</head
+
+<body>
+	<header>
+		<div class="topnav">
+		<nav>
+			<img src="imagenes/log.png"  alt="" class="logo">
+			<ul style="text-align: center;">
+				
+				
+			</ul>
+		</nav>
+		</div>
+		</header>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="header-1"></div>
+
+        <section class="contenedor">
+
+	 <div class="container-carousel">
+        <div class="carruseles" id="slider">
+            <section class="slider-section">
+                <img src="imagenes/Slide sand land 2.jpg">
+            </section>
+            <section class="slider-section">
+                <img src="imagenes/FNAF 24 Slide.jpg">
+            </section>
+            <section class="slider-section">
+                <img src="imagenes/Slide Luigi HD.jpg">
+            </section>
+            <section class="slider-section">
+                <img src="imagenes/Slide F1 24 Disponible.jpg">
+            
+        </div>
+        <div class="btn-left"><i class='bx bx-chevron-left'></i></div>
+        <div class="btn-right"><i class='bx bx-chevron-right'></i></div>
+    </div>
+	<br>
+
+	
+    <div class="contenedor-items">
+
+        <div class="item">
+		<img src="imagenes/MF.jpeg" class="img-item">
+		<h3 class="titulo-item"> Minecraft </h3>
+		<span class="precio-item">$2,800</span>
+			<p>  </p>	
+		<button class="boton-item">Agregar al Carrito</button>
+	</div>
+		
+	<div class="item">
+		<img src="imagenes/MK.jpeg" class="img-item">
+			<h3 class="titulo-item"> Mortal Kombat </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>
+		</div>
+			
+        <div class="item">
+		<img src="imagenes/MW.jpeg" class="img-item">
+			<h3 class="titulo-item"> Modern Warfare </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+				<button class="boton-item">Agregar al Carrito</button>
+		</div>
+	
+        <div class="item">
+	
+		<img src="imagenes/RED.jpg" class="img-item">
+			
+			<h3 class="titulo-item"> Red Dead Redemption II </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+			
+		</div>
+		
+        <div class="item">
+		
+		<img src="imagenes/zeldaBOW.jpeg" class="img-item">
+			
+			<h3 class="titulo-item"> Zelda:BoTW </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+			
+		</div>
+		
+        <div class="item">
+	
+		<img src="imagenes/zeldaTOK.jpeg" class="img-item">
+			
+			<h3 class="titulo-item"> Zelda:TOK </h3>
+            <span class="precio-item">$2,800</span>
+			<button class="boton-item">Agregar al Carrito</button>	
+				<p> </p>
+			
+		</div>
+		
+        <div class="item">
+		
+		<img src="imagenes/BLACK3.jpeg" class="img-item">
+			
+			<h3 class="titulo-item"> Call of Duty: Black Ops 3 </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+			
+		</div>
+		
+        <div class="item">
+		
+		<img src="imagenes/BLACK4.jpeg" class="img-item">
+			
+			<h3 class="titulo-item"> Call of Duty: Black Ops 4 </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+			
+		</div>
+		
+        <div class="item">
+		
+		<img src="imagenes/gta5.jpg" class="img-item">
+		
+			<h3 class="titulo-item"> Grand Thef Auto 5 </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+			
+		</div>
+
+        <div class="item">
+	
+		<img src="imagenes/CUP.jpeg" class="img-item">
+			
+			<h3 class="titulo-item"> CupHead </h3>
+            <span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+			</div>
+		
+        <div class="item">
+		<img src="imagenes/little.jpeg" class="img-item">
+			<h3 > Little Nightmares </h3>
+			<span class="precio-item">$2,800</span>
+			<p>  </p>	
+			<button class="boton-item">Agregar al Carrito</button>	
+		</div>
+
+		<div class="item">
+		<img src="imagenes/elden.jpeg" class="img-item">
+			
+			<h3 class="titulo-item"> Elden Ring </h3>
+			<span class="precio-item">$2,800</span>
+				<p> </p>
+			<button class="boton-item">Agregar al Carrito</button>	
+		</div>
+		</div>
+	
+
+	         <div class="carrito" id="carrito">
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+
+            <div class="carrito-items">
+             <!--
+                <div class="carrito-item">
+                    <img src="img/boxengasse.png" width="80px" alt="">
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo">Box Engasse</span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-minus restar-cantidad"></i>
+                            <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">$15.000,00</span>
+                    </div>
+                   <span class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                   </span>
+                </div>
+                <div class="carrito-item">
+                    <img src="img/skinglam.png" width="80px" alt="">
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo">Skin Glam</span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-minus restar-cantidad"></i>
+                            <input type="text" value="3" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">$18.000,00</span>
+                    </div>
+                   <button class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                   </button>
+                </div>
+                  -->
+            </div>
+            <div class="carrito-total">
+                <div class="fila">  
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">
+                        $120.000,00
+                    </span>
+                </div>
+                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+            </div>
+        </div>
+        </div>
+
+        </section>
+    
+		
+	
+
+	<script>
+
+const btnLeft = document.querySelector(".btn-left"),
+      btnRight = document.querySelector(".btn-right"),
+      slider = document.querySelector("#slider"),
+      sliderSection = document.querySelectorAll(".slider-section");
+
+
+btnLeft.addEventListener("click", e => moveToLeft())
+btnRight.addEventListener("click", e => moveToRight())
+
+setInterval(() => {
+    moveToRight()
+}, 3000);
+
+
+let operacion = 0,
+    counter = 0,
+    widthImg = 100 / sliderSection.length;
+
+function moveToRight() {
+    if (counter >= sliderSection.length-1) {
+        counter = 0;
+        operacion = 0;
+        slider.style.transform = `translate(-${operacion}%)`;
+        slider.style.transition = "none";
+        return;
+    } 
+    counter++;
+    operacion = operacion + widthImg;
+    slider.style.transform = `translate(-${operacion}%)`;
+    slider.style.transition = "all ease .6s"
+    
+}  
+
+function moveToLeft() {
+    counter--;
+    if (counter < 0 ) {
+        counter = sliderSection.length-1;
+        operacion = widthImg * (sliderSection.length-1)
+        slider.style.transform = `translate(-${operacion}%)`;
+        slider.style.transition = "none";
+        return;
+    } 
+    operacion = operacion - widthImg;
+    slider.style.transform = `translate(-${operacion}%)`;
+    slider.style.transition = "all ease .6s"
+    }    
+		
+		
+		
+     	//Variable que mantiene el estado visible del carrito
+var carritoVisible = false;
+
+//Espermos que todos los elementos de la pàgina cargen para ejecutar el script
+if(document.readyState == 'loading'){
+    document.addEventListener('DOMContentLoaded', ready)
+}else{
+    ready();
+}
+
+function ready(){
+    
+    //Agregremos funcionalidad a los botones eliminar del carrito
+    var botonesEliminarItem = document.getElementsByClassName('btn-eliminar');
+    for(var i=0;i<botonesEliminarItem.length; i++){
+        var button = botonesEliminarItem[i];
+        button.addEventListener('click',eliminarItemCarrito);
+    }
+
+    //Agrego funcionalidad al boton sumar cantidad
+    var botonesSumarCantidad = document.getElementsByClassName('sumar-cantidad');
+    for(var i=0;i<botonesSumarCantidad.length; i++){
+        var button = botonesSumarCantidad[i];
+        button.addEventListener('click',sumarCantidad);
+    }
+
+     //Agrego funcionalidad al buton restar cantidad
+    var botonesRestarCantidad = document.getElementsByClassName('restar-cantidad');
+    for(var i=0;i<botonesRestarCantidad.length; i++){
+        var button = botonesRestarCantidad[i];
+        button.addEventListener('click',restarCantidad);
+    }
+
+    //Agregamos funcionalidad al boton Agregar al carrito
+    var botonesAgregarAlCarrito = document.getElementsByClassName('boton-item');
+    for(var i=0; i<botonesAgregarAlCarrito.length;i++){
+        var button = botonesAgregarAlCarrito[i];
+        button.addEventListener('click', agregarAlCarritoClicked);
+    }
+
+    //Agregamos funcionalidad al botón comprar
+    document.getElementsByClassName('btn-pagar')[0].addEventListener('click',pagarClicked)
+}
+//Eliminamos todos los elementos del carrito y lo ocultamos
+function pagarClicked(){
+    alert("Gracias por la compra");
+    //Elimino todos los elmentos del carrito
+    var carritoItems = document.getElementsByClassName('carrito-items')[0];
+    while (carritoItems.hasChildNodes()){
+        carritoItems.removeChild(carritoItems.firstChild)
+    }
+    actualizarTotalCarrito();
+    ocultarCarrito();
+}
+//Funciòn que controla el boton clickeado de agregar al carrito
+function agregarAlCarritoClicked(event){
+    var button = event.target;
+    var item = button.parentElement;
+    var titulo = item.getElementsByClassName('titulo-item')[0].innerText;
+    var precio = item.getElementsByClassName('precio-item')[0].innerText;
+    var imagenSrc = item.getElementsByClassName('img-item')[0].src;
+    console.log(imagenSrc);
+
+    agregarItemAlCarrito(titulo, precio, imagenSrc);
+
+    hacerVisibleCarrito();
+}
+
+//Funcion que hace visible el carrito
+function hacerVisibleCarrito(){
+    carritoVisible = true;
+    var carrito = document.getElementsByClassName('carrito')[0];
+    carrito.style.marginRight = '0';
+    carrito.style.opacity = '1';
+
+    var items =document.getElementsByClassName('contenedor-items')[0];
+    items.style.width = '60%';
+}
+
+//Funciòn que agrega un item al carrito
+function agregarItemAlCarrito(titulo, precio, imagenSrc){
+    var item = document.createElement('div');
+    item.classList.add = ('item');
+    var itemsCarrito = document.getElementsByClassName('carrito-items')[0];
+
+    //controlamos que el item que intenta ingresar no se encuentre en el carrito
+    var nombresItemsCarrito = itemsCarrito.getElementsByClassName('carrito-item-titulo');
+    for(var i=0;i < nombresItemsCarrito.length;i++){
+        if(nombresItemsCarrito[i].innerText==titulo){
+            alert("El item ya se encuentra en el carrito");
+            return;
+        }
+    }
+
+    var itemCarritoContenido = `
+        <div class="carrito-item">
+            <img src="${imagenSrc}" width="80px" alt="">
+            <div class="carrito-item-detalles">
+                <span class="carrito-item-titulo">${titulo}</span>
+                <div class="selector-cantidad">
+                    <i class="fa-solid fa-minus restar-cantidad"></i>
+                    <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                    <i class="fa-solid fa-plus sumar-cantidad"></i>
+                </div>
+                <span class="carrito-item-precio">${precio}</span>
+            </div>
+            <button class="btn-eliminar">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+    `
+    item.innerHTML = itemCarritoContenido;
+    itemsCarrito.append(item);
+
+    //Agregamos la funcionalidad eliminar al nuevo item
+     item.getElementsByClassName('btn-eliminar')[0].addEventListener('click', eliminarItemCarrito);
+
+    //Agregmos al funcionalidad restar cantidad del nuevo item
+    var botonRestarCantidad = item.getElementsByClassName('restar-cantidad')[0];
+    botonRestarCantidad.addEventListener('click',restarCantidad);
+
+    //Agregamos la funcionalidad sumar cantidad del nuevo item
+    var botonSumarCantidad = item.getElementsByClassName('sumar-cantidad')[0];
+    botonSumarCantidad.addEventListener('click',sumarCantidad);
+
+    //Actualizamos total
+    actualizarTotalCarrito();
+}
+//Aumento en uno la cantidad del elemento seleccionado
+function sumarCantidad(event){
+    var buttonClicked = event.target;
+    var selector = buttonClicked.parentElement;
+    console.log(selector.getElementsByClassName('carrito-item-cantidad')[0].value);
+    var cantidadActual = selector.getElementsByClassName('carrito-item-cantidad')[0].value;
+    cantidadActual++;
+    selector.getElementsByClassName('carrito-item-cantidad')[0].value = cantidadActual;
+    actualizarTotalCarrito();
+}
+//Resto en uno la cantidad del elemento seleccionado
+function restarCantidad(event){
+    var buttonClicked = event.target;
+    var selector = buttonClicked.parentElement;
+    console.log(selector.getElementsByClassName('carrito-item-cantidad')[0].value);
+    var cantidadActual = selector.getElementsByClassName('carrito-item-cantidad')[0].value;
+    cantidadActual--;
+    if(cantidadActual>=1){
+        selector.getElementsByClassName('carrito-item-cantidad')[0].value = cantidadActual;
+        actualizarTotalCarrito();
+    }
+}
+
+//Elimino el item seleccionado del carrito
+function eliminarItemCarrito(event){
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    //Actualizamos el total del carrito
+    actualizarTotalCarrito();
+
+    //la siguiente funciòn controla si hay elementos en el carrito
+    //Si no hay elimino el carrito
+    ocultarCarrito();
+}
+//Funciòn que controla si hay elementos en el carrito. Si no hay oculto el carrito.
+function ocultarCarrito(){
+    var carritoItems = document.getElementsByClassName('carrito-items')[0];
+    if(carritoItems.childElementCount==0){
+        var carrito = document.getElementsByClassName('carrito')[0];
+        carrito.style.marginRight = '-100%';
+        carrito.style.opacity = '0';
+        carritoVisible = false;
+    
+        var items =document.getElementsByClassName('contenedor-items')[0];
+        items.style.width = '100%';
+    }
+}
+//Actualizamos el total de Carrito
+function actualizarTotalCarrito(){
+    //seleccionamos el contenedor carrito
+    var carritoContenedor = document.getElementsByClassName('carrito')[0];
+    var carritoItems = carritoContenedor.getElementsByClassName('carrito-item');
+    var total = 0;
+    //recorremos cada elemento del carrito para actualizar el total
+    for(var i=0; i< carritoItems.length;i++){
+        var item = carritoItems[i];
+        var precioElemento = item.getElementsByClassName('carrito-item-precio')[0];
+        //quitamos el simobolo peso y el punto de milesimos.
+        var precio = parseFloat(precioElemento.innerText.replace('$','').replace('.',''));
+        var cantidadItem = item.getElementsByClassName('carrito-item-cantidad')[0];
+        console.log(precio);
+        var cantidad = cantidadItem.value;
+        total = total + (precio * cantidad);
+    }
+    total = Math.round(total * 100)/100;
+
+    document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es") + ",00";
+
+}
+
+	</script>
+		
+</body>
+</html>
